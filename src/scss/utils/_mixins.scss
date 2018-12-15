@@ -1,0 +1,36 @@
+@mixin flex($dir: row, $wrap: nowrap, $just: flex-start, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    flex-wrap: $wrap;
+    align-items: $align;
+}
+
+@mixin media($size) {
+    @if $size == 'md' {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    } 
+    @else if $size == 'lg' {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+    @else if $size == 'xl' {
+        @media (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+    @else {
+        @error "'#{$size}' is not valid $size argument";
+    }
+}
+
+@mixin roundy($dia:auto) {
+    overflow: hidden;
+    width: $dia;
+    min-width: $dia;
+    height: $dia;
+    border-radius: 50%;
+} 

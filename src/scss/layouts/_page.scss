@@ -1,0 +1,19 @@
+.page {
+    width: 90%;
+    margin: auto;
+    padding-top: 40px;
+    font-family: $font-family-primary;
+
+    @include media('md') {
+
+    }
+
+    .header {
+        margin: 20px;
+        @include flex($dir: column);
+
+        &__title {
+            margin-bottom: 20px;
+        }
+    }
+}
