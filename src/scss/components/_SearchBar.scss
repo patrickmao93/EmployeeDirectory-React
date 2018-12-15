@@ -1,0 +1,28 @@
+.search-bar {
+  display: block;
+  width: 90%;
+  height: 46px;
+  outline: none;
+  font-weight: 600;
+  border-radius: 23px;
+  border: 2px solid $color-border-primary;
+  text-align: center;
+  color: $color-font-primary;
+  transition: 0.3s ease;
+
+  &:focus {
+    border-color: $color-focus;
+  }
+
+  &::placeholder {
+    color: $color-font-secondary;
+  }
+
+  @include media("lg") {
+    width: 50%;
+  }
+
+  @include media("xl") {
+    width: 40%;
+  }
+}

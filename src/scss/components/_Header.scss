@@ -1,0 +1,13 @@
+.header {
+  margin: 20px;
+  @include flex($dir: column);
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    width: 100%;
+    @include flex($just: center);
+  }
+}

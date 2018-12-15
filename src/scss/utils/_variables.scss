@@ -4,10 +4,15 @@ $color-primary: white;
 $color-primary-fade: darken($color-primary, 2%);
 $color-secondary: #333;
 
-$color-focus: #13b4e9;
+//border colors
+$color-border-primary: #e0e0e0;
 
+//font colors
 $color-font-primary: #404a51;
 $color-font-secondary: #92979b;
+
+//state colors
+$color-focus: #13b4e9;
 
 $breakpoint-md: 480px;
 $breakpoint-lg: 900px;

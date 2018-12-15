@@ -1,0 +1,10 @@
+.app-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 40px;
+  font-family: $font-family-primary;
+
+  @include media("xl") {
+    width: 80%;
+  }
+}

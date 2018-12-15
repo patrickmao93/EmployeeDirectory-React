@@ -1,0 +1,21 @@
+.card {
+  cursor: pointer;
+  background: $color-primary;
+  border: 2px solid $color-border-primary;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 10px;
+  @include flex();
+
+  transition: 0.3s ease;
+
+  @include media("md") {
+    margin: 20px;
+  }
+
+  &:hover {
+    border-color: $color-focus;
+    box-shadow: 0 6px 14px -6px rgba($color: #000000, $alpha: 0.2);
+    transform: translateY(-3px);
+  }
+}
