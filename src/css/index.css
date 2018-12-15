@@ -144,13 +144,14 @@ body {
 
 .app-container {
   width: 90%;
+  min-width: 380px;
   margin: 0 auto;
   padding-top: 40px;
   font-family: "Open Sans", sans-serif;
 }
 @media (min-width: 1300px) {
   .app-container {
-    width: 80%;
+    width: 75%;
   }
 }
 
@@ -204,16 +205,17 @@ body {
 }
 
 .employee-list {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
 }
 
 .card {
   cursor: pointer;
   background: white;
   border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 24px;
-  margin-bottom: 10px;
+  margin: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -221,10 +223,48 @@ body {
   align-items: center;
   transition: 0.3s ease;
 }
-@media (min-width: 480px) {
+@media (min-width: 900px) {
   .card {
     margin: 20px;
   }
+}
+.card__thumbnail {
+  overflow: hidden;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+  overflow: hidden;
+}
+@media (min-width: 480px) {
+  .card__thumbnail {
+    overflow: hidden;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+.card__thumbnail img {
+  width: 100%;
+  height: auto;
+}
+.card__info {
+  font-family: "Open Sans", sans-serif;
+}
+.card__info__name {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #404a51;
+  margin-bottom: 5px;
+}
+.card__info__desc {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #92979b;
+  line-height: 1.6;
 }
 .card:hover {
   border-color: #13b4e9;

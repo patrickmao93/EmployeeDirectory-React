@@ -2,15 +2,47 @@
   cursor: pointer;
   background: $color-primary;
   border: 2px solid $color-border-primary;
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 24px;
-  margin-bottom: 10px;
+  margin: 10px;
   @include flex();
 
   transition: 0.3s ease;
 
-  @include media("md") {
+  @include media("lg") {
     margin: 20px;
+  }
+
+  &__thumbnail {
+    @include roundy(50px);
+    margin-right: 16px;
+    overflow: hidden;
+
+    @include media("md") {
+      @include roundy(100px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__info {
+    font-family: $font-family-primary;
+    &__name {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: $color-font-primary;
+      margin-bottom: 5px;
+    }
+    &__desc {
+      display: block;
+      font-size: 0.8em;
+      font-weight: 400;
+      color: $color-font-secondary;
+      line-height: 1.6;
+    }
   }
 
   &:hover {
