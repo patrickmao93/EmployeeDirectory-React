@@ -1,3 +1,23 @@
+.card-mockup, .card {
+  cursor: pointer;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  transition: 0.3s ease;
+}
+@media (min-width: 900px) {
+  .card-mockup, .card {
+    margin: 20px;
+  }
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -137,7 +157,7 @@ table {
 }
 
 body {
-  background: #fafafa;
+  background: whitesmoke;
   min-width: 340px;
   font-family: "Open Sans", sans-serif;
 }
@@ -209,25 +229,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
 }
 
-.card {
-  cursor: pointer;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 20px;
-  padding: 24px;
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-items: center;
-  transition: 0.3s ease;
-}
-@media (min-width: 900px) {
-  .card {
-    margin: 20px;
-  }
-}
 .card__thumbnail {
   overflow: hidden;
   width: 50px;
@@ -246,7 +247,7 @@ body {
     border-radius: 50%;
   }
 }
-.card__thumbnail img {
+.card__thumbnail__img {
   width: 100%;
   height: auto;
 }
@@ -270,6 +271,53 @@ body {
   border-color: #13b4e9;
   box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
+}
+
+.card-mockup {
+  height: 152px;
+}
+.card-mockup__thumbnail {
+  overflow: hidden;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+  overflow: hidden;
+  background: whitesmoke;
+  animation: loading 2s ease 0.2s infinite alternate;
+}
+@media (min-width: 480px) {
+  .card-mockup__thumbnail {
+    overflow: hidden;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+.card-mockup__info__name {
+  height: 30px;
+  width: 100px;
+  background: whitesmoke;
+  animation: loading 1s ease 0.2s infinite alternate;
+  margin-bottom: 5px;
+}
+.card-mockup__info__desc {
+  height: 20px;
+  width: 160px;
+  margin-bottom: 4px;
+  background: whitesmoke;
+  animation: loading 1s ease 0.3s infinite alternate;
+}
+
+@keyframes loading {
+  from {
+    background-color: whitesmoke;
+  }
+  to {
+    background-color: #dbdbdb;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

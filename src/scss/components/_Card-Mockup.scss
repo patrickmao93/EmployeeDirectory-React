@@ -1,0 +1,42 @@
+.card-mockup {
+  @extend %card;
+  height: 152px;
+
+  &__thumbnail {
+    @include roundy(50px);
+    margin-right: 16px;
+    overflow: hidden;
+    background: $color-primary-fade;
+    animation: loading 2s ease 0.2s infinite alternate;
+    @include media("md") {
+      @include roundy(100px);
+    }
+  }
+
+  &__info {
+    &__name {
+      height: 30px;
+      width: 100px;
+      background: $color-primary-fade;
+      animation: loading 1s ease 0.2s infinite alternate;
+      margin-bottom: 5px;
+    }
+    &__desc {
+      height: 20px;
+      width: 160px;
+      margin-bottom: 4px;
+      background: $color-primary-fade;
+      animation: loading 1s ease 0.3s infinite alternate;
+    }
+  }
+}
+
+@keyframes loading {
+  from {
+    background-color: $color-primary-fade;
+  }
+
+  to {
+    background-color: $color-primary-fader;
+  }
+}

@@ -1,0 +1,15 @@
+%card {
+  cursor: pointer;
+  background: $color-primary;
+  border: 2px solid $color-border-primary;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 10px;
+  @include flex();
+
+  transition: 0.3s ease;
+
+  @include media("lg") {
+    margin: 20px;
+  }
+}
