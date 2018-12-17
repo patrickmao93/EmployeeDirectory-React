@@ -1,0 +1,8 @@
+.overlay {
+  font-family: $font-family-primary;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.7);
+  z-index: 100;
+}

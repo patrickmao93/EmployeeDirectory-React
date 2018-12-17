@@ -34,7 +34,10 @@ class EmployeeDirectory extends React.Component {
     return (
       <div className="employee-directory">
         <SearchBar onInputChange={this.filterEmployees} />
-        <EmployeeList employees={this.state} />
+        <EmployeeList
+          employees={this.state}
+          onClickCard={this.props.onClickCard}
+        />
       </div>
     );
   }

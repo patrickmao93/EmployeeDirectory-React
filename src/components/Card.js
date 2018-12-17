@@ -1,25 +1,36 @@
 import React from "react";
 
-const Card = props => {
-  const employeeInfo = props.employee.info;
-  return (
-    <div className="card">
-      <div className="card__thumbnail">
-        <img
-          className="card__thumbnail__image"
-          src={employeeInfo.picURL}
-          alt={employeeInfo.firstName}
-        />
+class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.employeeInfo = props.employee.info;
+    this.cardRef = React.createRef();
+  }
+
+  componentDidMount = () => {
+    this.cardRef.current.addEventListener("click", this.props.onClickCard);
+  };
+
+  render() {
+    return (
+      <div ref={this.cardRef} className="card">
+        <div className="card__thumbnail">
+          <img
+            className="card__thumbnail__image"
+            src={this.employeeInfo.picURL}
+            alt={this.employeeInfo.firstName}
+          />
+        </div>
+        <div className="card__info">
+          <h2 className="card__info__name">
+            {this.employeeInfo.firstName + " " + this.employeeInfo.lastName}
+          </h2>
+          <span className="card__info__desc">{this.employeeInfo.email}</span>
+          <span className="card__info__desc">{this.employeeInfo.city}</span>
+        </div>
       </div>
-      <div className="card__info">
-        <h2 className="card__info__name">
-          {employeeInfo.firstName + " " + employeeInfo.lastName}
-        </h2>
-        <span className="card__info__desc">{employeeInfo.email}</span>
-        <span className="card__info__desc">{employeeInfo.city}</span>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Card;

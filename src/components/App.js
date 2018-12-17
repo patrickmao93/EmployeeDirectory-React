@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import RandomAPI from "../api/RandomAPI";
+import Overlay from "./Overlay";
+import Modal from "./Modal";
 import EmployeeDirectory from "./EmployeeDirectory";
 
 function formatDate(dateStr) {
@@ -54,6 +56,11 @@ class App extends React.Component {
     this.setState({ employees: employees });
   };
 
+  onClickCard = event => {
+    const card = event.currentTarget;
+    console.log(card);
+  };
+
   componentDidMount = () => {
     this.getEmployeeList();
   };
@@ -61,8 +68,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <Overlay onClickCard={this.onClickCard}>
+          <Modal />
+        </Overlay>
         <Header title="AWESOME STARTUP EMPLOYEE DIRECTORY" />
-        <EmployeeDirectory employees={this.state.employees} />
+        <EmployeeDirectory
+          employees={this.state.employees}
+          onClickCard={this.onClickCard}
+        />
       </div>
     );
   }

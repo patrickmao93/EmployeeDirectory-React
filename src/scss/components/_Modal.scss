@@ -1,0 +1,119 @@
+.modal-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  user-select: none;
+  position: relative;
+  padding: 40px;
+  border-radius: 6px;
+  border-bottom: 1px solid $color-primary-fade;
+  background: $color-primary;
+  box-shadow: 0 6px 20px -6px rgba($color: #000000, $alpha: 0.7);
+  @include flex($dir: column);
+
+  &__thumbnail {
+    @include roundy(160px);
+    box-shadow: 0 6px 16px -4px rgba($color: #000000, $alpha: 0.3);
+    margin-bottom: 10px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__info {
+    @include flex($dir: column);
+
+    &__name {
+      display: block;
+      font-weight: 600;
+      font-size: 1.5em;
+      color: $color-font-header;
+      line-height: 2;
+    }
+
+    &__desc {
+      display: block;
+      color: $color-font-desc;
+      line-height: 2;
+    }
+
+    &__divider {
+      display: block;
+      min-width: 300px;
+      border-bottom: 1px solid $color-border-primary;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.left-arrow,
+.right-arrow {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  @include roundy(60px);
+  @include flex($just: center);
+  background: $color-primary-dark;
+  opacity: 0.7;
+  transition: 0.2s ease;
+
+  &__path {
+    fill: $color-primary;
+    transition: fill 0.2s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0px 4px 16px -2px rgba($color: #000000, $alpha: 0.5);
+    background: $color-primary;
+
+    .left-arrow__path,
+    .right-arrow__path {
+      fill: $color-border-focus;
+    }
+  }
+
+  svg {
+    display: block;
+    margin: auto;
+    height: 70%;
+    width: auto;
+  }
+}
+
+.left-arrow {
+  left: -80px;
+}
+
+.right-arrow {
+  right: -80px;
+}
+
+.icn-close {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1000;
+
+  path {
+    fill: $color-border-primary;
+    transition: 0.3s ease;
+  }
+
+  :hover {
+    path {
+      fill: $color-border-focus;
+    }
+  }
+}
