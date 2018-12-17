@@ -13,7 +13,7 @@ const Card = props => {
       </div>
       <div className="card__info">
         <h2 className="card__info__name">
-          {employeeInfo.firstName + employeeInfo.lastName}
+          {employeeInfo.firstName + " " + employeeInfo.lastName}
         </h2>
         <span className="card__info__desc">{employeeInfo.email}</span>
         <span className="card__info__desc">{employeeInfo.city}</span>

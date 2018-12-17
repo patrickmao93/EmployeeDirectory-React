@@ -199,6 +199,8 @@ body {
   display: block;
   width: 90%;
   height: 46px;
+  margin-left: auto;
+  margin-right: auto;
   outline: none;
   font-weight: 600;
   border-radius: 23px;
@@ -227,6 +229,11 @@ body {
 .employee-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+}
+.employee-list__no-match {
+  margin-top: 20px;
+  grid-column: 1/-1;
+  text-align: center;
 }
 
 .card__thumbnail {

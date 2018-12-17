@@ -1,4 +1,10 @@
 .employee-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+
+  &__no-match {
+    margin-top: 20px;
+    grid-column: 1 / -1;
+    text-align: center;
+  }
 }
