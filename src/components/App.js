@@ -3,7 +3,8 @@ import Header from "./Header";
 import RandomAPI from "../api/RandomAPI";
 import Overlay from "./Overlay";
 import Modal from "./Modal";
-import EmployeeDirectory from "./EmployeeDirectory";
+import SearchBar from "./SearchBar";
+import EmployeeList from "./EmployeeList";
 
 function formatDate(dateStr) {
   const d = new Date(dateStr);
@@ -46,18 +47,71 @@ class Employee {
 }
 
 class App extends React.Component {
-  state = { employees: [], modal: "hidden" };
+  state = {
+    employees: [],
+    displayedEmployees: [],
+    match: null,
+    overlay: "hidden",
+    selectedEmployee: null,
+    selectedIndex: null
+  };
 
   getEmployeeList = async () => {
-    const response = await RandomAPI.get("?results=500&nat=us");
+    const response = await RandomAPI.get("?results=100&nat=us");
     const employees = response.data.results.map(
       employee => new Employee(employee)
     );
-    this.setState({ employees: employees });
+    this.setState({ employees: employees, displayedEmployees: employees });
   };
 
-  onClickCard = event => {
-    this.setState({ modal: "show" });
+  filterEmployees = term => {
+    //remove space from search term
+    const formattedTerm = term
+      .trim()
+      .split(" ")
+      .join("")
+      .toLowerCase();
+
+    const employeeList = this.state.employees.filter(employee => {
+      const name =
+        employee.info.firstName.toLowerCase() +
+        employee.info.lastName.toLowerCase();
+      return name.includes(formattedTerm);
+    });
+
+    this.setState({
+      displayedEmployees: employeeList,
+      match: employeeList.length
+    });
+  };
+
+  onClickCard = employeeUuId => {
+    const selectedEmployee = this.state.displayedEmployees.find(
+      employee => employee.uuid === employeeUuId
+    );
+    this.setState({ overlay: "show", selectedEmployee }, () => {
+      let selectedIndex = this.state.displayedEmployees.findIndex(
+        employee => employee.uuid === this.state.selectedEmployee.uuid
+      );
+      this.setState({ selectedIndex });
+    });
+  };
+
+  onClickCloseOverlay = event => {
+    this.setState({ overlay: "hidden" });
+  };
+
+  onClickArrow = orientation => {
+    let selectedIndex = this.state.selectedIndex;
+    if (orientation === "left") {
+      --selectedIndex;
+    } else {
+      ++selectedIndex;
+    }
+    this.setState({
+      selectedEmployee: this.state.displayedEmployees[selectedIndex],
+      selectedIndex
+    });
   };
 
   componentDidMount = () => {
@@ -67,12 +121,23 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <Overlay display={this.state.modal}>
-          <Modal />
+        <Overlay
+          display={this.state.overlay}
+          onClick={this.onClickCloseOverlay}
+        >
+          <Modal
+            selectedEmployee={this.state.selectedEmployee}
+            selectedIndex={this.state.selectedIndex}
+            length={this.state.displayedEmployees.length}
+            onClick={this.onClickArrow}
+          />
         </Overlay>
         <Header title="AWESOME STARTUP EMPLOYEE DIRECTORY" />
-        <EmployeeDirectory
-          employees={this.state.employees}
+
+        <SearchBar onInputChange={this.filterEmployees} />
+        <EmployeeList
+          employees={this.state.displayedEmployees}
+          match={this.state.match}
           onClickCard={this.onClickCard}
         />
       </div>

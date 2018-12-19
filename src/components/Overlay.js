@@ -16,7 +16,10 @@ class Overlay extends React.Component {
 
   render() {
     return (
-      <div className={`overlay ${this.isActive(this.state.display)}`}>
+      <div
+        className={`overlay ${this.isActive(this.state.display)}`}
+        onClick={this.props.onClick}
+      >
         {this.props.children}
       </div>
     );

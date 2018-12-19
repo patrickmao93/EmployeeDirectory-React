@@ -8,7 +8,9 @@ class Card extends React.Component {
   }
 
   componentDidMount = () => {
-    this.cardRef.current.addEventListener("click", this.props.onClickCard);
+    this.cardRef.current.addEventListener("click", event => {
+      this.props.onClickCard(this.props.employee.uuid);
+    });
   };
 
   render() {

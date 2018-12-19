@@ -341,4 +341,135 @@ body {
   display: block;
 }
 
+.modal-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  position: relative;
+  padding: 40px;
+  border-radius: 6px;
+  border-bottom: 1px solid whitesmoke;
+  background: white;
+  box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.modal__thumbnail {
+  overflow: hidden;
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+.modal__thumbnail img {
+  width: 100%;
+  height: auto;
+}
+.modal__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.modal__info__name {
+  display: block;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #404a51;
+  line-height: 2;
+}
+.modal__info__desc {
+  display: block;
+  color: #92979b;
+  line-height: 2;
+}
+.modal__info__divider {
+  display: block;
+  min-width: 300px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.left-arrow,
+.right-arrow {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  background: #333;
+  opacity: 0.7;
+  transition: 0.2s ease;
+}
+.left-arrow__path,
+.right-arrow__path {
+  fill: white;
+  transition: fill 0.2s ease;
+}
+.left-arrow:hover,
+.right-arrow:hover {
+  opacity: 1;
+  box-shadow: 0px 4px 16px -2px rgba(0, 0, 0, 0.5);
+  background: white;
+}
+.left-arrow:hover .left-arrow__path,
+.left-arrow:hover .right-arrow__path,
+.right-arrow:hover .left-arrow__path,
+.right-arrow:hover .right-arrow__path {
+  fill: #13b4e9;
+}
+.left-arrow svg,
+.right-arrow svg {
+  display: block;
+  margin: auto;
+  height: 70%;
+  width: auto;
+}
+
+.left-arrow {
+  left: -80px;
+}
+
+.right-arrow {
+  right: -80px;
+}
+
+.icn-close {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1000;
+}
+.icn-close path {
+  fill: #e0e0e0;
+  transition: 0.3s ease;
+}
+.icn-close :hover path {
+  fill: #13b4e9;
+}
+
 /*# sourceMappingURL=index.css.map */
