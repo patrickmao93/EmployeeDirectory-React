@@ -1,15 +1,18 @@
 import React from "react";
 
 class Overlay extends React.Component {
-  state = { display: "none" };
-
-  setDisplay = displayState => {
-    this.setState({ display: displayState });
-  };
+  state = { display: "hidden" };
 
   isActive = displayState => {
-    return displayState === "display" ? "overlay--active" : "overlay--hidden";
+    return displayState === "show" ? "overlay--active" : "";
   };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.display !== prevState.display) {
+      return { display: nextProps.display };
+    }
+    return { display: prevState.display };
+  }
 
   render() {
     return (

@@ -326,5 +326,19 @@ body {
     background-color: #dbdbdb;
   }
 }
+.overlay {
+  display: none;
+  font-family: "Open Sans", sans-serif;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+.overlay--active {
+  display: block;
+}
 
 /*# sourceMappingURL=index.css.map */

@@ -46,7 +46,7 @@ class Employee {
 }
 
 class App extends React.Component {
-  state = { employees: [] };
+  state = { employees: [], modal: "hidden" };
 
   getEmployeeList = async () => {
     const response = await RandomAPI.get("?results=500&nat=us");
@@ -57,8 +57,7 @@ class App extends React.Component {
   };
 
   onClickCard = event => {
-    const card = event.currentTarget;
-    console.log(card);
+    this.setState({ modal: "show" });
   };
 
   componentDidMount = () => {
@@ -68,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <Overlay onClickCard={this.onClickCard}>
+        <Overlay display={this.state.modal}>
           <Modal />
         </Overlay>
         <Header title="AWESOME STARTUP EMPLOYEE DIRECTORY" />
