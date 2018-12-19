@@ -11,7 +11,7 @@ class Modal extends React.Component {
       return <NavArrow arrowOrientation="left" onClick={this.props.onClick} />;
     } else if (
       orientation === "right" &&
-      this.props.selectedIndex < this.props.length
+      this.props.selectedIndex < this.props.length - 1
     ) {
       return <NavArrow arrowOrientation="right" onClick={this.props.onClick} />;
     }
