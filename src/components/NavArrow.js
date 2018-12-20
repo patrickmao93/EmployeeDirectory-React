@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * NavArrow Component
+ */
 class NavArrow extends React.Component {
   renderArrow() {
     if (this.props.arrowOrientation === "left") {
@@ -42,7 +45,7 @@ class NavArrow extends React.Component {
   }
 
   onClick = event => {
-    event.stopPropagation();
+    event.stopPropagation(); //prevents clicking on arrow from closing overlay
     this.props.onClick(this.props.arrowOrientation);
   };
 

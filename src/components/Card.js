@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Card Component
+ */
 class Card extends React.Component {
   constructor(props) {
     super(props);

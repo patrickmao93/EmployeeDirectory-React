@@ -1,8 +1,13 @@
 import React from "react";
-
+/**
+ * Overlay Component
+ */
 class Overlay extends React.Component {
+  //State initialization
   state = { display: "hidden" };
-
+  /**
+   * @param {string} displayState - the display state of the overlay, default is "hidden"
+   */
   isActive = displayState => {
     return displayState === "show" ? "overlay--active" : "";
   };

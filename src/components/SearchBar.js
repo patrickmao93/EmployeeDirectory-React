@@ -1,8 +1,13 @@
 import React from "react";
 
 class SearchBar extends React.Component {
+  //state initialization
   state = { term: "" };
 
+  /**
+   * Makes user input controlled
+   * @param {event object} event
+   */
   onInputChange = event => {
     const term = event.target.value;
     this.setState({ term });

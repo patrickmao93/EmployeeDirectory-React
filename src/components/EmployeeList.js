@@ -2,11 +2,12 @@ import React from "react";
 import Card from "./Card";
 import CardMockup from "./CardMockup";
 
+/**
+ * EmployeeList Component
+ */
 class EmployeeList extends React.Component {
-  state = {};
-
   renderContent = employees => {
-    //if no match, show "no match found"
+    //if search has no match, show "no match found"
     if (this.props.match === 0) {
       return (
         <div className="employee-list__no-match">
