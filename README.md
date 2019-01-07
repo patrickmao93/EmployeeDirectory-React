@@ -1,6 +1,6 @@
 # Employee Directory Project
 
-## Run this site
+## How To Run this App
 
 > Fork it, `npm intsall` then `npm start`
 
